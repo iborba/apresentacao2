@@ -1,4 +1,4 @@
-const express = require('express');
+import * as express from 'express';
 const app = express();
 
 app.get('/', (_req, res) => {
@@ -7,9 +7,9 @@ app.get('/', (_req, res) => {
 
 app.get('/divide', (req, res) => {
     const { v1, v2 } = req.query;
-    // if (v1 === "0" || v2 === "0") {
-    //     return res.status(400).send('Impossível dividir por 0');
-    // }
+    if (v1 === "0" || v2 === "0") {
+        return res.status(400).send('Impossível dividir por 0');
+    }
 
     const result = `Resultado da divisão é: ${Number(v1) / Number(v2)}`;
 

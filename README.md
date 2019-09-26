@@ -80,4 +80,8 @@ curl "http://localhost:8080/soma?v1=2&v2=3"
 url disponível http://apresentacao.brazilsouth.cloudapp.azure.com:8080/soma?v1=20&v2=30
 
 
+kubectl apply -f k8s/apresentacao_deployment.yaml
+kubectl apply -f k8s/apresentacao_service.yaml
+
+
 kubectl rollout restart deployment apresentacao
