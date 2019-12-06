@@ -10,16 +10,11 @@
   "license": "Apache-2.0",
   "keywords": [],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/src/index.js",
     "start:dev": "nodemon",
-    "check": "gts check",
-    "clean": "gts clean",
     "compile": "tsc -p .",
     "fix": "gts fix",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run check",
+    "postinstall": "npm run compile",
     "docker:build": "rm -rf package-lock.json && docker build -t registrympn.azurecr.io/apresentacao2 .",
     "docker:push": "docker push registrympn.azurecr.io/apresentacao2",
     "docker": "npm run docker:build && npm run docker:push"
@@ -27,12 +22,12 @@
   "devDependencies": {
     "gts": "^1.1.0",
     "typescript": "~3.5.0",
+    "nodemon": "^1.19.2",
+    "@types/express": "^4.17.1",
     "@types/node": "^10.0.3"
   },
   "dependencies": {
-    "@types/express": "^4.17.1",
     "express": "^4.17.1",
-    "nodemon": "^1.19.2",
     "ts-node": "^8.3.0"
   }
 }

@@ -1,12 +1,16 @@
 "use strict";
-const express = require('express');
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
 const app = express();
 app.get('/', (_req, res) => {
-    res.send('Hello world!!!');
+    return res.status(200).send('Hello world!!!');
 });
 app.get('/divide', (req, res) => {
     const { v1, v2 } = req.query;
-    const result = `Resultado da divisão é: ${Number(v1) / Number(v2)} na versão 1.0 da API`;
+    if (v1 === "0" || v2 === "0") {
+        return res.status(400).send('Impossível dividir por 0');
+    }
+    const result = `Resultado da divisão é: ${Number(v1) / Number(v2)}`;
     return res.status(200).send(result);
 });
 app.listen(8080, () => {
