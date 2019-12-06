@@ -1,0 +1,26 @@
+# single domain, single service
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-example-05
+  namespace: stage
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: iborba.dnsabr.com
+      http:
+        paths:
+          - backend:
+              serviceName: apresentacao2
+              servicePort: 80
+            path: /
+          - backend:
+              serviceName: graphql
+              servicePort: 80
+            path: /graphql
+          - backend:
+              serviceName: apresentacao2
+              servicePort: 80
+            path: /israel

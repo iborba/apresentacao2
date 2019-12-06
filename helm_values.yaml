@@ -1,0 +1,17 @@
+replicaCount: 1
+
+namespace: stage
+name: apresentacao2
+image:
+  name: apresentacao2
+  defaultRegistry: israelborba/
+
+use:
+  service: true
+
+service:
+  type: NodePort
+  ports:
+    - name: port-80
+      port: 80
+      targetPort: 3333

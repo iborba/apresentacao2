@@ -1,0 +1,12 @@
+# all traffic
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-example-01
+  namespace: stage
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  backend:
+    serviceName: apresentacao2
+    servicePort: 80

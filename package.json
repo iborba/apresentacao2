@@ -19,8 +19,8 @@
     "compile": "tsc -p .",
     "fix": "gts fix",
     "postinstall": "npm run compile",
-    "docker:build": "rm -rf package-lock.json && docker build -t registrympn.azurecr.io/apresentacao2 .",
-    "docker:push": "docker push registrympn.azurecr.io/apresentacao2",
+    "docker:build": "rm -rf package-lock.json && docker build -t israelborba/apresentacao2 .",
+    "docker:push": "docker push israelborba/apresentacao2",
     "docker": "npm run docker:build && npm run docker:push"
   },
   "devDependencies": {

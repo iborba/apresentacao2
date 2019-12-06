@@ -1,0 +1,18 @@
+# helm install nginx-ingress stable/nginx-ingress \
+#   --namespace stage \
+#   --set rbac.create=true \
+#   --set controller.publishService.enabled=true \
+#   --set controller.scope.enabled=true \
+#   --set controller.scope.namespace=stage
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: apresentacao2-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: iborba-ip
+  labels:
+    app: apresentacao2
+spec:
+  backend:
+    serviceName: apresentacao2
+    servicePort: 80
