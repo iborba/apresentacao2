@@ -16,6 +16,6 @@ app.get('/divide', (req, res) => {
     return res.status(200).send(result);
 });
 
-app.listen(8080, () => {
-    console.log("listening at 8080");
+app.listen(process.env.PORT || 3333, () => {
+    console.log("listening at 3333");
 });
